@@ -1,0 +1,32 @@
+.post-card {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid teal;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 1rem 0;
+}
+
+.post-card-info {
+  width: 100%;
+  display: flex;
+  margin-top: var(--mb-0-5);
+}
+.post-card-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.post-card-info-name {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--tiny-font-size);
+}
+
+.post-card-info-username {
+  color: var(--title-color);
+  font-weight: var(--font-medium);
+}

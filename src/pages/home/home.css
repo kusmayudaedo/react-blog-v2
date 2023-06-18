@@ -1,0 +1,16 @@
+.home {
+  display: flex;
+  gap: 10px;
+}
+
+.home-post {
+  flex: 9;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  background-color: var(--container-color);
+}
+
+.home-sidebar {
+  flex: 3;
+}

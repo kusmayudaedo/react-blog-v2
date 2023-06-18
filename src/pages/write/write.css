@@ -1,0 +1,70 @@
+.write {
+  margin: 1rem 1rem;
+  display: flex;
+  gap: 20px;
+}
+
+.write-content {
+  flex: 9;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--container-color);
+  padding: 1rem;
+}
+
+.write-content input {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.write-country {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.write-editor-container {
+  height: 400px;
+  overflow: scroll;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.text-editor {
+  height: 100%;
+  border: none;
+}
+
+.write-menu {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--container-color);
+  padding: 1rem;
+}
+
+.write-menu-item {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.write-menu-item .upload-file {
+  text-decoration: underline;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.write-menu-item h3 {
+  margin-bottom: 5px;
+}
+
+.write-menu-item .category {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  margin: 2px;
+}

@@ -1,0 +1,38 @@
+.footer {
+  height: 300px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-social {
+  margin: 5px 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.footer-icon {
+  font-size: 1.5rem;
+}
+
+.footer-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.footer-description span {
+  text-align: center;
+  font-size: var(--small-font-size);
+}

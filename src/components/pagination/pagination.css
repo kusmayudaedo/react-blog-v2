@@ -1,0 +1,42 @@
+.pagination {
+  display: flex;
+}
+
+.pagination-button {
+  flex: 9;
+}
+
+.pagination-nav {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+.pagination-nav button {
+  width: max-content;
+  padding: 5px 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: white;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  border: 1px solid teal;
+  color: teal;
+  cursor: pointer;
+}
+
+.pagination-span {
+  flex: 3;
+}
+
+.pagination-nav button:disabled {
+  width: max-content;
+  padding: 5px 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  border: 1px solid teal;
+  color: teal;
+  cursor: not-allowed;
+}
