@@ -1,6 +1,7 @@
 import "./postCard.css";
 
 function PostCard({
+  id = "",
   title = "",
   totalFav = "",
   username = "",
@@ -29,6 +30,7 @@ function RenderPostCard({ mostFavorite = [], currentPage }) {
     return (
       <PostCard
         key={articles.id}
+        id={articles.id}
         title={articles.title}
         totalFav={articles.total_fav}
         categoryName={articles.Category.name}

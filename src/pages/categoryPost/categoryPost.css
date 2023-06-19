@@ -1,40 +1,4 @@
-/* .home {
-    display: flex;
-    flex-direction: column;   
+.container {
+  display: flex;
+  flex-direction: column;
 }
-
-.home-container {
-    display: flex;
-}
-
-
-.home-pagination {
-    display: flex;
-    padding: 0 1rem;
-    gap:60%;
-}
-
-.pagination-button{
-    width: max-content;
-    padding: 5px 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-    background-color: white;
-    font-size: var(--small-font-size);
-    font-weight: var(--font-medium);
-    border: 1px solid teal;
-    color: teal;
-    cursor: pointer;
-}
-
-.pagination-button-disable {
-    width: max-content;
-    padding: 5px 15px;
-    margin: 10px 0;
-    border-radius: 10px;
-    background-color: darkgray;
-    font-size: var(--small-font-size);
-    font-weight: var(--font-medium);
-    color: teal;
-    cursor: pointer;
-} */

@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import RootLayout from "./pages/rootLayout/RootLayout";
 import Home from "./pages/home/Home";
 import CategoryPost from "./pages/categoryPost/CategoryPost";
 import Write from "./pages/write/Write";
@@ -37,11 +38,22 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/:categoryName/:categoryId/:page"
-            element={<CategoryPost />}
-          />
+          <Route path="/" element={<RootLayout />}>
+            <Route index element={<Home />} />
+            <Route
+              path=":categoryName/:categoryId/:page"
+              element={<CategoryPost />}
+            />
+            <Route
+              path="your/stories"
+              element={
+                <ProtectedRoute>
+                  <MyPost />
+                </ProtectedRoute>
+              }
+            />
+          </Route>
+
           <Route
             path="/write"
             element={
@@ -59,14 +71,6 @@ function App() {
             }
           />
           <Route
-            path="/your/stories"
-            element={
-              <ProtectedRoute>
-                <MyPost />
-              </ProtectedRoute>
-            }
-          />
-          <Route
             path="/settings"
             element={
               <ProtectedRoute>
@@ -79,6 +83,7 @@ function App() {
           <Route path="/forget-password" element={<ForgetPass />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/verification/:token" element={<Verification />} />
+          <Route path="/test" element={<Verification />} />
           <Route
             path="/verification-change-email/:token"
             element={<Verification />}

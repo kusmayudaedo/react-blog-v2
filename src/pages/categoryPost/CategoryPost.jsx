@@ -2,11 +2,7 @@ import "../home/home.css";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Topbar from "../../components/topbar/Topbar";
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
 import RenderPost from "../../components/post/Post";
-import Sidebar from "../../components/sidebar/Sidebar";
 import Loading from "../../components/loading/Loading";
 import { getArticles } from "../../store/slices/blogs/slices";
 import Pagination from "../../components/pagination/Pagination";
@@ -52,22 +48,12 @@ function CategoryPost() {
   if (loading) return <Loading />;
   return (
     <>
-      <Topbar />
-      <Header />
-      <div className='home'>
-        <div className='home-post'>
-          <RenderPost articles={articles} currentPage={currentBlogPage} />
-        </div>
-        <div className='home-sidebar'>
-          <Sidebar />
-        </div>
-      </div>
+      <RenderPost articles={articles} currentPage={currentBlogPage} />
       <Pagination
         onChangePagination={onChangePagination}
         disabledPrev={currentBlogPage === 1}
         disabledNext={currentBlogPage >= totalBlogPage}
       />
-      <Footer />
     </>
   );
 }

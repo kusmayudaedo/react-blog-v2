@@ -51,11 +51,11 @@ function MyPost() {
 
   useEffect(() => {
     dispatch(geAllPost({ page: currentAllBlogPage }));
-  }, [currentAllBlogPage, allArticle]);
+  }, [currentAllBlogPage]);
 
   useEffect(() => {
     dispatch(getLikedPost());
-  }, [currentLikedPage, likedArticles]);
+  }, [currentLikedPage]);
 
   const myPost = allArticle.filter((item) => item.UserId === user);
 
@@ -75,12 +75,10 @@ function MyPost() {
 
   return (
     <>
-      <Topbar />
-      <Header />
-      <div className='stories'>
-        <div className='stories-container'>
-          <div className='stories-title'>
-            <nav className='stories-nav'>
+      <div className="stories">
+        <div className="stories-container">
+          <div className="stories-title">
+            <nav className="stories-nav">
               <button
                 className={
                   storiesToggle === 0
@@ -103,7 +101,7 @@ function MyPost() {
               </button>
             </nav>
           </div>
-          <div className='stories-post'>
+          <div className="stories-post">
             {storiesToggle === 0 ? (
               myPost.length !== 0 ? (
                 <RenderPost
@@ -121,9 +119,6 @@ function MyPost() {
             )}
           </div>
         </div>
-        <div className='stories-sidebar'>
-          <Sidebar />
-        </div>
       </div>
       {storiesToggle === 0 ? (
         <Pagination
@@ -138,7 +133,6 @@ function MyPost() {
           disabledNext={currentLikedPage >= totalLikedPage}
         />
       )}
-      <Footer />
     </>
   );
 }

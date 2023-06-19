@@ -99,41 +99,41 @@ function Write() {
   return (
     <>
       <Topbar />
-      <div className='write'>
-        <div className='write-content'>
+      <div className="write">
+        <div className="write-content">
           <input
-            type='text'
-            id='title'
+            type="text"
+            id="title"
             value={title}
             onChange={(event) => setTitle(event.target.value)}
-            placeholder='Post Title'
+            placeholder="Post Title"
           />
 
-          <div className='write-editor-container'>
+          <div className="write-editor-container">
             <ReactQuill
-              className='text-editor'
-              theme='snow'
+              className="text-editor"
+              theme="snow"
               value={content}
               onChange={(value) => setContent(value)} // Updated event handler
-              placeholder='Write your stories'
+              placeholder="Write your stories"
             />
           </div>
 
           <input
-            type='text'
-            id='keyword'
+            type="text"
+            id="keyword"
             value={keywords}
             onChange={(event) => setKeywords(event.target.value)}
-            placeholder='Keyword'
+            placeholder="Keyword"
           />
 
           <select
-            className='write-country'
-            defaultValue=''
+            className="write-country"
+            defaultValue=""
             value={selectedCountry}
             onChange={handleChangeCountry}
           >
-            <option value='' disabled>
+            <option value="" disabled>
               Select a country
             </option>
             {countries.map((country, index) => (
@@ -144,88 +144,88 @@ function Write() {
           </select>
         </div>
 
-        <div className='write-menu'>
-          <div className='write-menu-item'>
+        <div className="write-menu">
+          <div className="write-menu-item">
             <h3>Category</h3>
-            <div className='category'>
+            <div className="category">
               <input
-                type='radio'
-                name='category'
-                value='1'
-                id='1'
+                type="radio"
+                name="category"
+                value="1"
+                id="1"
                 onChange={handleCategoryChange}
               />
-              <label htmlFor='1'>Bisnis</label>
+              <label htmlFor="1">Bisnis</label>
             </div>
 
-            <div className='category'>
+            <div className="category">
               <input
-                type='radio'
-                name='category'
-                value='2'
-                id='2'
+                type="radio"
+                name="category"
+                value="2"
+                id="2"
                 onChange={handleCategoryChange}
               />
-              <label htmlFor='2'>Ekonomi</label>
+              <label htmlFor="2">Ekonomi</label>
             </div>
 
-            <div className='category'>
+            <div className="category">
               <input
-                type='radio'
-                name='category'
-                value='3'
-                id='3'
+                type="radio"
+                name="category"
+                value="3"
+                id="3"
                 onChange={handleCategoryChange}
               />
-              <label htmlFor='3'>Teknologi</label>
+              <label htmlFor="3">Teknologi</label>
             </div>
 
-            <div className='category'>
+            <div className="category">
               <input
-                type='radio'
-                name='category'
-                value='4'
-                id='4'
+                type="radio"
+                name="category"
+                value="4"
+                id="4"
                 onChange={handleCategoryChange}
               />
-              <label htmlFor='4'>Olahraga</label>
+              <label htmlFor="4">Olahraga</label>
             </div>
 
-            <div className='category'>
+            <div className="category">
               <input
-                type='radio'
-                name='category'
-                value='5'
-                id='5'
+                type="radio"
+                name="category"
+                value="5"
+                id="5"
                 onChange={handleCategoryChange}
               />
-              <label htmlFor='5'>Kuliner</label>
+              <label htmlFor="5">Kuliner</label>
             </div>
 
-            <div className='category'>
+            <div className="category">
               <input
-                type='radio'
-                name='category'
-                value='6'
-                id='6'
+                type="radio"
+                name="category"
+                value="6"
+                id="6"
                 onChange={handleCategoryChange}
               />
-              <label htmlFor='6'>Internasional</label>
+              <label htmlFor="6">Internasional</label>
             </div>
 
-            <div className='category'>
+            <div className="category">
               <input
-                type='radio'
-                name='category'
-                value='7'
-                id='7'
+                type="radio"
+                name="category"
+                value="7"
+                id="7"
                 onChange={handleCategoryChange}
               />
-              <label htmlFor='7'>Fiksi</label>
+              <label htmlFor="7">Fiksi</label>
             </div>
           </div>
 
-          <div className='write-menu-item'>
+          <div className="write-menu-item">
             <h3>Publish</h3>
             <span>
               <b>Status:</b> Draft
@@ -235,16 +235,16 @@ function Write() {
             </span>
             <input
               style={{ display: "none" }}
-              type='file'
-              id='image'
+              type="file"
+              id="image"
               onChange={handleImageChange}
             />
-            <label className='upload-file' htmlFor='image'>
+            <label className="upload-file" htmlFor="image">
               {" "}
               Upload image
             </label>
             <span>{image && image.name}</span>
-            <button className='write-menu-item-button' onClick={handleSubmit}>
+            <button className="write-menu-item-button" onClick={handleSubmit}>
               Publish
             </button>
           </div>

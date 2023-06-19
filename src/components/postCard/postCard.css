@@ -6,6 +6,9 @@
   padding: 5px 10px;
   margin: 1rem 0;
 }
+.post-card-title {
+  cursor: pointer;
+}
 
 .post-card-info {
   width: 100%;

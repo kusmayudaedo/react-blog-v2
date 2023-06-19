@@ -2,13 +2,9 @@ import "./home.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { geAllPost } from "../../store/slices/blogs/slices";
-import Topbar from "../../components/topbar/Topbar";
-import Header from "../../components/header/Header";
 import RenderPost from "../../components/post/Post";
-import Sidebar from "../../components/sidebar/Sidebar";
 import Loading from "../../components/loading/Loading";
 import Pagination from "../../components/pagination/Pagination";
-import Footer from "../../components/footer/Footer";
 
 function Home() {
   const dispatch = useDispatch();
@@ -38,25 +34,15 @@ function Home() {
   if (loading) return <Loading />;
   return (
     <>
-      <Topbar />
-      <Header />
-      <div className='home'>
-        <div className='home-post'>
-          <RenderPost
-            articles={allArticle}
-            currentAllBlogPage={currentAllBlogPage}
-          />
-        </div>
-        <div className='home-sidebar'>
-          <Sidebar />
-        </div>
-      </div>
+      <RenderPost
+        articles={allArticle}
+        currentAllBlogPage={currentAllBlogPage}
+      />
       <Pagination
         onChangePagination={onChangePagination}
         disabledPrev={currentAllBlogPage === 1}
         disabledNext={currentAllBlogPage >= totalAllArticlesPage}
       />
-      <Footer />
     </>
   );
 }

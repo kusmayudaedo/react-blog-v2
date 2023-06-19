@@ -16,7 +16,7 @@ function Pagination({
               window.scrollTo({ top: 500, behavior: "smooth" });
             }}
           >
-            Prev Page
+            <i className="bx bxs-skip-previous-circle pagination-icon"></i>
           </button>
 
           <button
@@ -27,7 +27,7 @@ function Pagination({
               window.scrollTo({ top: 500, behavior: "smooth" });
             }}
           >
-            Next Page
+            <i className="bx bxs-skip-next-circle pagination-icon"></i>
           </button>
         </nav>
       </div>
