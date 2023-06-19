@@ -4,7 +4,7 @@ import PPImage from "../../asset/no-profile-picture.png";
 import Topbar from "../../components/topbar/Topbar";
 import Footer from "../../components/footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Formik, Form } from "formik";
 import {
   settingsValidationSchema,
@@ -107,42 +107,42 @@ function Settings() {
   return (
     <>
       <Topbar />
-      <div className="settings">
-        <div className="settings-container">
-          <div className="settings-title">
-            <span className="settings-update-title"> Your Account </span>
+      <div className='settings'>
+        <div className='settings-container'>
+          <div className='settings-title'>
+            <span className='settings-update-title'> Your Account </span>
           </div>
-          <form className="settings-form" onSubmit={handleUploadImage}>
-            <label htmlFor="profile-picture"> Profile Picture</label>
-            <div className="settings-profile-picture">
+          <form className='settings-form' onSubmit={handleUploadImage}>
+            <label htmlFor='profile-picture'> Profile Picture</label>
+            <div className='settings-profile-picture'>
               {image ? (
-                <img className="settings-img" src={image} alt="Selected" />
+                <img className='settings-img' src={image} alt='Selected' />
               ) : (
                 <img
-                  className="settings-img"
+                  className='settings-img'
                   src={
                     imgProfile
                       ? process.env.REACT_APP_IMAGE_URL + imgProfile
                       : PPImage
                   }
-                  alt=""
+                  alt=''
                 />
               )}
-              <label htmlFor="image">
-                <i className="bx bxs-edit settings-pofile-picture-icon"></i>
+              <label htmlFor='image'>
+                <i className='bx bxs-edit settings-pofile-picture-icon'></i>
               </label>
               <input
-                type="file"
-                id="image"
+                type='file'
+                id='image'
                 style={{ display: "none" }}
                 onChange={handleImageChange}
               />
               {image && (
                 <>
-                  <button type="submit" className="setting-img-button">
+                  <button type='submit' className='setting-img-button'>
                     Upload
                   </button>
-                  <button className="setting-img-button" onClick={cancelUpload}>
+                  <button className='setting-img-button' onClick={cancelUpload}>
                     Cancel
                   </button>
                 </>
@@ -187,9 +187,9 @@ function Settings() {
                   })
                 );
               if (
-                values.username == initialUsername &&
-                values.email == initialEmail &&
-                values.phone == initialPhone
+                values.username === initialUsername &&
+                values.email === initialEmail &&
+                values.phone === initialPhone
               )
                 Toast.error("No change needed");
               setSubmitting(false);
@@ -203,34 +203,34 @@ function Settings() {
               handleSubmit,
               isSubmitting,
             }) => (
-              <Form className="settings-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="username">Username</label>
+              <Form className='settings-form' onSubmit={handleSubmit}>
+                <div className='form-group'>
+                  <label htmlFor='username'>Username</label>
                   <input
-                    type="text"
-                    id="username"
+                    type='text'
+                    id='username'
                     value={values.username}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
+                <div className='form-group'>
+                  <label htmlFor='email'>Email</label>
                   <input
-                    type="text"
-                    id="email"
+                    type='text'
+                    id='email'
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="username">Phone</label>
+                <div className='form-group'>
+                  <label htmlFor='username'>Phone</label>
                   <input
-                    type="phone"
-                    id="phone"
+                    type='phone'
+                    id='phone'
                     value={values.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -239,8 +239,8 @@ function Settings() {
 
                 {errors.message && <span>{errors.message}</span>}
                 <button
-                  className="settings-button"
-                  type="submit"
+                  className='settings-button'
+                  type='submit'
                   disabled={
                     isSubmitting ||
                     isChangeUsernameLoading ||
@@ -271,7 +271,7 @@ function Settings() {
             onSubmit={(values, { setSubmitting }) => {
               dispatch(changePassword(values));
               setSubmitting(false);
-              if (!userId) return <Navigate to="/login" replace />;
+              if (!userId) return <Navigate to='/login' replace />;
             }}
           >
             {({
@@ -282,34 +282,34 @@ function Settings() {
               handleSubmit,
               isSubmitting,
             }) => (
-              <Form className="settings-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="password">Current Password</label>
+              <Form className='settings-form' onSubmit={handleSubmit}>
+                <div className='form-group'>
+                  <label htmlFor='password'>Current Password</label>
                   <input
-                    type="password"
-                    id="currentPassword"
+                    type='password'
+                    id='currentPassword'
                     value={values.currentPassword}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="password">New Password</label>
+                <div className='form-group'>
+                  <label htmlFor='password'>New Password</label>
                   <input
-                    type="password"
-                    id="password"
+                    type='password'
+                    id='password'
                     value={values.password}
                     onChange={handleChange}
                     onBlur={handleBlur}
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="password">Confirm Password</label>
+                <div className='form-group'>
+                  <label htmlFor='password'>Confirm Password</label>
                   <input
-                    type="password"
-                    id="confirmPassword"
+                    type='password'
+                    id='confirmPassword'
                     value={values.confirmPassword}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -318,8 +318,8 @@ function Settings() {
 
                 {errors.message && <span>{errors.message}</span>}
                 <button
-                  className="settings-button"
-                  type="submit"
+                  className='settings-button'
+                  type='submit'
                   disabled={isSubmitting || isChangePasswordLoading}
                 >
                   Update Password

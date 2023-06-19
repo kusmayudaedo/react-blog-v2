@@ -3,6 +3,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import PPImage from "../../asset/no-profile-picture.png";
 import Modal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   likeArticle,
   setBlogPost,
@@ -91,6 +92,7 @@ function Post({
     const confirmed = window.confirm(
       "Are you sure you want to delete this blog post?"
     );
+
     if (confirmed) {
       dispatch(deleteBlog({ id }));
       setIsModalOpen(false);

@@ -6,12 +6,8 @@ import {
   getLikedPost,
   setCurrentAllBlogPage,
 } from "../../store/slices/blogs/slices";
-import Topbar from "../../components/topbar/Topbar";
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
 import RenderPost from "../../components/post/Post";
 import RenderLikedPost from "../../components/post/likedPost";
-import Sidebar from "../../components/sidebar/Sidebar";
 import Loading from "../../components/loading/Loading";
 import Pagination from "../../components/pagination/Pagination";
 
@@ -63,6 +59,7 @@ function MyPost() {
     setStoriesToggle(index);
     dispatch(setCurrentAllBlogPage(1));
   };
+
   const onChangePagination = (type) => {
     dispatch(
       geAllPost({
@@ -75,10 +72,10 @@ function MyPost() {
 
   return (
     <>
-      <div className="stories">
-        <div className="stories-container">
-          <div className="stories-title">
-            <nav className="stories-nav">
+      <div className='stories'>
+        <div className='stories-container'>
+          <div className='stories-title'>
+            <nav className='stories-nav'>
               <button
                 className={
                   storiesToggle === 0
@@ -101,7 +98,7 @@ function MyPost() {
               </button>
             </nav>
           </div>
-          <div className="stories-post">
+          <div className='stories-post'>
             {storiesToggle === 0 ? (
               myPost.length !== 0 ? (
                 <RenderPost

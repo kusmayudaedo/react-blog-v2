@@ -64,13 +64,9 @@ export const forgetPasswordValidation = Yup.object({
 
 export const resetPasswordValidation = Yup.object({
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters.")
-    .matches(/^[a-zA-Z0-9]+$/, "Password must be alphanumeric.")
-    .notOneOf(
-      [Yup.ref("currentPassword")],
-      "New password must be different from current password."
-    )
-    .required("New password is required."),
+    .min(6, "password must be at least 6 characters.")
+    .matches(/^[a-zA-Z0-9]+$/, "password must be alphanumeric.")
+    .required("password is required."),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password"), null], "Passwords must match.")
     .required("Confirm password is required."),

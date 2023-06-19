@@ -149,7 +149,7 @@ export const changePhone = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const { data } = await api.patch("/auth/changePhone", payload);
-      Toast.success(`Email Updated to ${payload.newEmail}`);
+      Toast.success(`Phone Updated to ${payload.newPhone}`);
       window.location.reload();
       return data;
     } catch (error) {
@@ -179,7 +179,7 @@ export const resetPassword = createAsyncThunk(
     try {
       const { data } = await api.patch("/auth/resetPass", payload);
       Toast.success(`Password reset successfully`);
-      return data;
+      return
     } catch (error) {
       Toast.error(error.response.data);
       return rejectWithValue(error?.response?.data);

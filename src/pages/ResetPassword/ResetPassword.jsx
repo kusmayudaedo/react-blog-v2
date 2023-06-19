@@ -19,7 +19,7 @@ function ResetPassword() {
   useEffect(() => {
     const verifyAccountToken = location.pathname.split("/")[2];
     localStorage.setItem("token", verifyAccountToken);
-  });
+  }, [location.pathname]);
 
   return (
     <div className='reset'>
@@ -71,6 +71,7 @@ function ResetPassword() {
                   onBlur={handleBlur}
                 />
               </div>
+              {errors.message && <span>{errors.message}</span>}
               <button className='reset-button' type='submit'>
                 Reset
               </button>
