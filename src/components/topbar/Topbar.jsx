@@ -1,5 +1,5 @@
 import "./topbar.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   getCategory,
@@ -84,19 +84,34 @@ function Topbar() {
 
   return (
     <>
-      <div className="top">
-        <div className="top-left">
-          <i className="bx bxl-facebook-circle top-icon"></i>
-          <i className="bx bxl-instagram-alt top-icon"></i>
-          <i className="bx bxl-pinterest top-icon"></i>
-          <i className="bx bxl-twitter top-icon"></i>
+      <div className='top'>
+        <div className='top-left'>
+          <i
+            className='bx bxl-facebook-circle top-icon'
+            onClick={() => (window.location.href = "https://www.facebook.com")}
+          ></i>
+
+          <i
+            className='bx bxl-instagram-alt top-icon'
+            onClick={() =>
+              (window.location.href = "https://www.instagram.com/")
+            }
+          ></i>
+          <i
+            className='bx bxl-pinterest top-icon'
+            onClick={() => (window.location.href = "https://id.pinterest.com/")}
+          ></i>
+          <i
+            className='bx bxl-twitter top-icon'
+            onClick={() => (window.location.href = "https://twitter.com/")}
+          ></i>
         </div>
 
-        <div className="top-center">
-          <h1 className="topbar-title">E-Corp Blog</h1>
-          <div className="topbar-list">
-            <ul className="top-list">
-              <li className="top-list-item" onClick={handleCategoryClick}>
+        <div className='top-center'>
+          {/* <h1 className="topbar-title">E-Corp Blog</h1> */}
+          <div className='topbar-list'>
+            <ul className='top-list'>
+              <li className='top-list-item' onClick={handleCategoryClick}>
                 Home
               </li>
               <RenderCategory
@@ -107,28 +122,28 @@ function Topbar() {
           </div>
         </div>
 
-        <div className="top-right">
+        <div className='top-right'>
           {user && isKeepLogin ? (
             <>
-              <i class="bx bx-search-alt-2 top-seacrh-icon"></i>
+              <i class='bx bx-search-alt-2 top-seacrh-icon'></i>
               <img
                 onClick={openModal}
-                className="top-img"
+                className='top-img'
                 src={
                   imgProfile
                     ? `${process.env.REACT_APP_IMAGE_URL + imgProfile}`
                     : PPImage
                 }
-                alt=""
+                alt=''
               />
             </>
           ) : (
-            <div className="login-register-button">
-              <button type="submit" onClick={() => navigate("/login")}>
+            <div className='login-register-button'>
+              <button type='submit' onClick={() => navigate("/login")}>
                 {" "}
                 Log In
               </button>
-              <button type="submit" onClick={() => navigate("/register")}>
+              <button type='submit' onClick={() => navigate("/register")}>
                 {" "}
                 Sign Up
               </button>

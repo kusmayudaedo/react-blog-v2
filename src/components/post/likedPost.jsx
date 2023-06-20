@@ -128,7 +128,7 @@ function LikedPost({
 
             <h1 className='single-post-title'>
               {title}
-              {user == userId && (
+              {user === userId && (
                 <div className='single-post-edit'>
                   <Link to={`/write?edit=2`} className='single-post-edit-icon'>
                     <i class='bx bxs-edit'></i>

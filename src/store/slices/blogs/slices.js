@@ -16,7 +16,7 @@ export const getArticles = createAsyncThunk(
       // @return data
       return data;
     } catch (error) {
-      Toast.error(error.response.data)
+      Toast.error(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -29,7 +29,7 @@ export const getCategory = createAsyncThunk(
       const { data } = await api.get("/blog/allCategory");
       return data;
     } catch (error) {
-      Toast.error(error.response.data)
+      Toast.error(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -45,7 +45,7 @@ export const getMostFavorite = createAsyncThunk(
       // @return data
       return data;
     } catch (error) {
-      Toast.error(error.response.data)
+      Toast.error(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -61,7 +61,7 @@ export const getLikedPost = createAsyncThunk(
       // @return data
       return data;
     } catch (error) {
-      Toast.error(error.response.data)
+      Toast.error(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -78,7 +78,7 @@ export const geAllPost = createAsyncThunk(
       // @return data
       return data;
     } catch (error) {
-      Toast.error(error.response.data)
+      Toast.error(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -88,9 +88,9 @@ export const setCurrentAllBlogPage = createAsyncThunk(
   "blogs/setCurrentAllBlogPage",
   async (payload, { rejectWithValue }) => {
     try {
-      return 1;
+      return;
     } catch (error) {
-      Toast.error(error.response.data)
+      Toast.error(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -101,10 +101,10 @@ export const createBlog = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const { data } = await api.post("/blog", payload);
-      Toast.success(data.message)
+      Toast.success(data.message);
       return data;
     } catch (error) {
-      Toast.error(error.response.data)
+      Toast.error(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -116,10 +116,10 @@ export const deleteBlog = createAsyncThunk(
     try {
       const { id } = payload;
       const { data } = await api.patch(`/blog/remove/${id}`);
-      Toast.success('Stories deleted successfully')
+      Toast.success("Stories deleted successfully");
       return data;
     } catch (error) {
-      Toast.error(error.response.data)
+      Toast.error(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -130,7 +130,7 @@ export const likeArticle = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       await api.post("/blog/like", payload);
-      Toast.success('You liked this stories')
+      Toast.success("You liked this stories");
       return;
     } catch (error) {
       return rejectWithValue(error.response ? error.response.data : error);
@@ -144,7 +144,7 @@ export const setBlogPost = createAsyncThunk(
     try {
       return payload;
     } catch (error) {
-      Toast.error(error.response.data)
+      Toast.error(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }

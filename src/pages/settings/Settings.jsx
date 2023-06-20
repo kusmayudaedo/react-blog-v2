@@ -17,7 +17,7 @@ import {
   changeEmail,
   changePhone,
 } from "../../store/slices/auth/slices";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Toast from "react-hot-toast";
 
 function Settings() {
@@ -30,7 +30,6 @@ function Settings() {
     username,
     email,
     phone,
-    password,
     imgProfile,
   } = useSelector((state) => {
     return {
@@ -42,7 +41,6 @@ function Settings() {
       username: state.auth.username,
       email: state.auth.email,
       phone: state.auth.phone,
-      password: state.auth.password,
       imgProfile: state.auth.imgProfile,
     };
   });
@@ -52,7 +50,6 @@ function Settings() {
   const initialPhone = phone;
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [isImageUploaded, setIsImageUploaded] = useState(false);
 

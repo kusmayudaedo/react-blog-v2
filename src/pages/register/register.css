@@ -77,3 +77,8 @@
   color: red;
   font-size: 0.1rem;
 }
+
+.link {
+  cursor: pointer;
+  color: teal;
+}

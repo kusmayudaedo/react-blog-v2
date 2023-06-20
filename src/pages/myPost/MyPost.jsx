@@ -76,7 +76,7 @@ function MyPost() {
     );
   };
 
-  if (loading) return <Loading />;
+  if (loading || loadngLikedArticles) return <Loading />;
 
   return (
     <>

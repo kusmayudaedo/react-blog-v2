@@ -1,13 +1,26 @@
 import "./header.css";
+import HeaderImg from "../../asset/header.png";
 
 const Header = () => {
   return (
     <div className='header'>
-      <img
-        className='header-img'
-        src='https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-        alt=''
-      />
+      <div className='header-container'>
+        <div class='header-content'>
+          <h1>E-Corp Blog</h1>
+          <p>
+            Welcome to our blog website, your go-to destination for a wide range
+            of engaging and informative articles covering various categories.
+            Our platform offers an extensive collection of articles on topics
+            ranging from business and economics to technology, sports, culinary
+            delights, international news, and even captivating science fiction.
+          </p>
+          <div class='btn-box'>
+            <a href='' class='btn'>
+              Let's explore!
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

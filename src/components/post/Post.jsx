@@ -193,7 +193,7 @@ function Post({
 
             <h1 className='single-post-title'>
               {title}
-              {user == userId && (
+              {user === userId && (
                 <div className='single-post-edit'>
                   <i
                     class='bx bxs-edit single-post-edit-icon'

@@ -45,10 +45,14 @@ function CategoryPost() {
     );
   };
 
+  const sortedArticles = [...articles].sort(
+    (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+  );
+
   if (loading) return <Loading />;
   return (
     <>
-      <RenderPost articles={articles} currentPage={currentBlogPage} />
+      <RenderPost articles={sortedArticles} currentPage={currentBlogPage} />
       <Pagination
         onChangePagination={onChangePagination}
         disabledPrev={currentBlogPage === 1}

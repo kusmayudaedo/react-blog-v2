@@ -1,5 +1,5 @@
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Formik, Form } from "formik";
 import { resetPassword } from "../../store/slices/auth/slices";
 import { resetPasswordValidation } from "../../store/slices/auth/validation";
@@ -10,12 +10,6 @@ function ResetPassword() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-
-  const { id, isResetPasswordLoading } = useSelector((state) => {
-    return {
-      isResetPasswordLoading: state.auth.isResetPasswordLoading,
-    };
-  });
   const verifyAccountToken = location.pathname.split("/")[2];
 
   useEffect(() => {

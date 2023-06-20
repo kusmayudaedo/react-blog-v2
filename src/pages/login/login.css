@@ -30,6 +30,7 @@
 .login-form label {
   font-size: var(--small-font-size);
   color: var(--title-color);
+  margin-left: 2px;
 }
 
 .login-form input {
@@ -49,7 +50,6 @@
 }
 
 .login-form span {
-  margin-left: 10px;
   font-size: var(--small-font-size);
 }
 
