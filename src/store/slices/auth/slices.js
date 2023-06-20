@@ -42,10 +42,6 @@ export const register = createAsyncThunk(
   async (payload, { rejectWithValue }) => {
     try {
       const { data } = await api.post("/auth", payload);
-
-      // save token
-      localStorage.setItem("token", data?.token);
-
       Toast.success(
         "Register success. Please check your email to verify your account."
       );
@@ -179,9 +175,9 @@ export const resetPassword = createAsyncThunk(
     try {
       const { data } = await api.patch("/auth/resetPass", payload);
       Toast.success(`Password reset successfully`);
-      return data
+      return data;
     } catch (error) {
-      localStorage.removeItem("token")
+      localStorage.removeItem("token");
       Toast.error("Something wrong, please try again");
       return rejectWithValue(error?.response?.data);
     }

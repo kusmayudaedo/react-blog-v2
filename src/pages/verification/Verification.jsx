@@ -23,15 +23,16 @@ function Verification() {
   }, []);
 
   const handleSubmit = () => {
+    localStorage.removeItem("token");
     navigate("/login");
   };
   return (
-    <div className="verification">
-      <div className="verification-container">
+    <div className='verification'>
+      <div className='verification-container'>
         <h2>Verification Success</h2>
-        <form className="verification-form" onSubmit={handleSubmit}>
+        <form className='verification-form' onSubmit={handleSubmit}>
           <p>Let's explore our platform</p>
-          <button className="verification-button" type="submit">
+          <button className='verification-button' type='submit'>
             Click Me!
           </button>
         </form>
