@@ -179,9 +179,10 @@ export const resetPassword = createAsyncThunk(
     try {
       const { data } = await api.patch("/auth/resetPass", payload);
       Toast.success(`Password reset successfully`);
-      return
+      return data
     } catch (error) {
-      Toast.error(error.response.data);
+      localStorage.removeItem("token")
+      Toast.error("Something wrong, please try again");
       return rejectWithValue(error?.response?.data);
     }
   }

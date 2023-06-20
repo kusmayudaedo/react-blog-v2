@@ -68,39 +68,39 @@ function LikedPost({
   };
 
   return (
-    <div className="post">
-      <img className="post-img" src={ThumbnailImg} alt="" />
-      <div className="post-info">
-        <h2 className="post-title" onClick={openModal}>
+    <div className='post'>
+      <img className='post-img' src={ThumbnailImg} alt='' />
+      <div className='post-info'>
+        <h2 className='post-title' onClick={openModal}>
           {title}
         </h2>
         <hr />
-        <div className="post-category">
-          <span className="singepost-category">
-            <Link className="link">{categoryName}</Link>
+        <div className='post-category'>
+          <span className='singepost-category'>
+            <Link className='link'>{categoryName}</Link>
           </span>
         </div>
 
-        <div className="post-description">
+        <div className='post-description'>
           <p>{content}</p>
         </div>
-        <button className="read-more" onClick={openModal}>
+        <button className='read-more' onClick={openModal}>
           Read more
         </button>
 
-        <div className="post-user-info">
+        <div className='post-user-info'>
           <img
-            className="post-user-info-img"
+            className='post-user-info-img'
             src={
               userProfilePicture
                 ? `${process.env.REACT_APP_IMAGE_URL + userProfilePicture}`
                 : PPImage
             }
-            alt=""
+            alt=''
           />
-          <div className="post-user-info-name">
-            <span className="post-user-info-username">{username}</span>
-            <span className="post-user-info-date">
+          <div className='post-user-info-name'>
+            <span className='post-user-info-username'>{username}</span>
+            <span className='post-user-info-date'>
               {new Date(dateCreated).toDateString()}
             </span>
           </div>
@@ -108,62 +108,62 @@ function LikedPost({
       </div>
 
       <Modal
-        className="modal-post"
+        className='modal-post'
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         style={modalStyles}
       >
-        <div className="single-post">
-          <div className="single-post-container">
-            <div className="close-modal">
-              <span className="single-post-modal-close" onClick={closeModal}>
-                <i class="bx bxs-x-circle"></i>
+        <div className='single-post'>
+          <div className='single-post-container'>
+            <div className='close-modal'>
+              <span className='single-post-modal-close' onClick={closeModal}>
+                <i class='bx bxs-x-circle'></i>
               </span>
             </div>
             <img
-              className="single-post-img"
+              className='single-post-img'
               src={process.env.REACT_APP_IMAGE_URL + thumbnail}
-              alt=""
+              alt=''
             />
 
-            <h1 className="single-post-title">
+            <h1 className='single-post-title'>
               {title}
               {user == userId && (
-                <div className="single-post-edit">
-                  <Link to={`/write?edit=2`} className="single-post-edit-icon">
-                    <i class="bx bxs-edit"></i>
+                <div className='single-post-edit'>
+                  <Link to={`/write?edit=2`} className='single-post-edit-icon'>
+                    <i class='bx bxs-edit'></i>
                   </Link>
-                  <i class="bx bxs-message-square-x single-post-edit-icon"></i>
+                  <i class='bx bxs-message-square-x single-post-edit-icon'></i>
                 </div>
               )}
             </h1>
-            <div className="single-post-user-info">
+            <div className='single-post-user-info'>
               <img
-                className="single-post-user-info-img"
+                className='single-post-user-info-img'
                 src={
                   userProfilePicture
                     ? `${process.env.REACT_APP_IMAGE_URL + userProfilePicture}`
                     : PPImage
                 }
-                alt=""
+                alt=''
               />
-              <div className="single-post-user-info-name">
-                <span className="single-post-user-info-username">
+              <div className='single-post-user-info-name'>
+                <span className='single-post-user-info-username'>
                   {username}
                 </span>
-                <span className="single-post-user-info-date">
+                <span className='single-post-user-info-date'>
                   {new Date(dateCreated).toDateString()}
                 </span>
                 <span
-                  className="like-post"
+                  className='like-post'
                   onClick={() => handleLikeClick(postId)}
                   style={{ color: likeButtonColor }}
                 >
-                  <i class="bx bxs-like"></i>
+                  <i class='bx bxs-like'></i>
                 </span>
               </div>
             </div>
-            <div className="single-post-content">
+            <div className='single-post-content'>
               <p>{content}</p>
             </div>
           </div>
@@ -177,12 +177,12 @@ function RenderLikedPost({ articles = [], currentPage }) {
   return articles.map((article, index) => {
     return (
       <LikedPost
-        key={article.id}
-        title={article.Blog.title}
-        content={article.Blog.content}
-        categoryId={article.Blog.Category.id}
-        categoryName={article.Blog.Category.name}
-        dateCreated={article.createdAt}
+        key={article?.id}
+        title={article?.Blog.title}
+        content={article?.Blog.content}
+        categoryId={article?.Blog?.Category?.id}
+        categoryName={article?.Blog?.Category?.name}
+        dateCreated={article?.createdAt}
         currentPage={currentPage}
       />
     );

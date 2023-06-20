@@ -32,6 +32,30 @@ const modalStyles = {
   },
 };
 
+const modalDeleteStyles = {
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+    zIndex: 1000,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  content: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "170px",
+    width: "450px",
+    borderRadius: "8px",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.2)",
+    padding: "20px",
+    backgroundColor: "#fff",
+    overflow: "hidden",
+    border: "none",
+  },
+};
+
 function Post({
   postId = "",
   title = "",
@@ -50,6 +74,7 @@ function Post({
   const dispatch = useDispatch();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
   const [likeButtonColor, setlikeButtonColor] = useState("inherit");
 
   const { user } = useSelector((state) => {
@@ -88,16 +113,19 @@ function Post({
     navigate(`/write/${postId}`);
   };
 
-  const handleDeleteButton = (id) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this blog post?"
-    );
+  const openDeleteModal = () => {
+    setIsModalDeleteOpen(true);
+  };
 
-    if (confirmed) {
-      dispatch(deleteBlog({ id }));
-      setIsModalOpen(false);
-      <Navigate to='/your/stories' replace />;
-    }
+  const closeModalDelete = () => {
+    setIsModalDeleteOpen(false);
+  };
+
+  const handleDeleteButton = (id) => {
+    dispatch(deleteBlog({ id }));
+    setIsModalOpen(false);
+    setIsModalDeleteOpen(false);
+    <Navigate to='/your/stories' replace />;
   };
 
   return (
@@ -173,7 +201,7 @@ function Post({
                   ></i>
                   <i
                     class='bx bxs-message-square-x single-post-edit-icon'
-                    onClick={() => handleDeleteButton(postId)}
+                    onClick={openDeleteModal}
                   ></i>
                 </div>
               )}
@@ -210,6 +238,24 @@ function Post({
           </div>
         </div>
       </Modal>
+
+      <Modal
+        className='modal-delete'
+        isOpen={isModalDeleteOpen}
+        onRequestClose={closeModalDelete}
+        style={modalDeleteStyles}
+      >
+        <div className='delete-container'>
+          <h2 className='delete-description'>Delete Post</h2>
+          <p className='delete-description'>
+            Are you sure you want to delete this blog post?
+          </p>
+          <div className='delete-button'>
+            <button onClick={() => handleDeleteButton(postId)}>Delete</button>
+            <button onClick={closeModalDelete}>Cancel</button>
+          </div>
+        </div>
+      </Modal>
     </div>
   );
 }
@@ -218,18 +264,18 @@ function RenderPost({ articles = [], currentPage }) {
   return articles.map((article, index) => {
     return (
       <Post
-        key={article.id}
-        postId={article.id}
-        title={article.title}
-        content={article.content}
-        thumbnail={article.imageURL}
-        categoryName={article.Category.name}
-        categoryId={article.Category.id}
-        keywords={article.Blog_Keywords[0].Keyword.name}
-        userProfilePicture={article.User.imgProfile}
-        userId={article.UserId}
-        username={article.User.username}
-        dateCreated={article.createdAt}
+        key={article?.id}
+        postId={article?.id}
+        title={article?.title}
+        content={article?.content}
+        thumbnail={article?.imageURL}
+        categoryName={article?.Category?.name}
+        categoryId={article?.Category?.id}
+        keywords={article?.Blog_Keywords[0].Keyword.name}
+        userProfilePicture={article?.User.imgProfile}
+        userId={article?.UserId}
+        username={article?.User.username}
+        dateCreated={article?.createdAt}
         currentPage={currentPage}
       />
     );

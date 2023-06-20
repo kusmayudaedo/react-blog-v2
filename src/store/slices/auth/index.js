@@ -204,8 +204,8 @@ const authSlice = createSlice({
     },
     [resetPassword.fulfilled]: (state, action) => {
       state.isResetPasswordLoading = false;
-      state.password = action.payload.password;
-      state.confirmPassword = action.payload.confirmPassword;
+      // state.password = action.payload.password;
+      // state.confirmPassword = action.payload.confirmPassword;
     },
     [resetPassword.rejected]: (state, action) => {
       state.isResetPasswordLoading = false;

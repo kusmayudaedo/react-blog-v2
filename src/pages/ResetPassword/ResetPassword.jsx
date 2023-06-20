@@ -16,10 +16,11 @@ function ResetPassword() {
       isResetPasswordLoading: state.auth.isResetPasswordLoading,
     };
   });
+  const verifyAccountToken = location.pathname.split("/")[2];
+
   useEffect(() => {
-    const verifyAccountToken = location.pathname.split("/")[2];
     localStorage.setItem("token", verifyAccountToken);
-  }, [location.pathname]);
+  }, [verifyAccountToken]);
 
   return (
     <div className='reset'>

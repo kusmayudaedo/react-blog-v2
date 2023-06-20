@@ -50,7 +50,7 @@ function MyPost() {
   }, [currentAllBlogPage]);
 
   useEffect(() => {
-    dispatch(getLikedPost());
+    dispatch(getLikedPost({ page: currentLikedPage }));
   }, [currentLikedPage]);
 
   const myPost = allArticle.filter((item) => item.UserId === user);
@@ -64,6 +64,14 @@ function MyPost() {
     dispatch(
       geAllPost({
         page: type === "prev" ? currentAllBlogPage - 1 : currentAllBlogPage + 1,
+      })
+    );
+  };
+
+  const onChangePaginationLike = (type) => {
+    dispatch(
+      getLikedPost({
+        page: type === "prev" ? currentLikedPage - 1 : currentLikedPage + 1,
       })
     );
   };
@@ -125,7 +133,7 @@ function MyPost() {
         />
       ) : (
         <Pagination
-          onChangePagination={onChangePagination}
+          onChangePagination={onChangePaginationLike}
           disabledPrev={currentLikedPage === 1}
           disabledNext={currentLikedPage >= totalLikedPage}
         />

@@ -55,8 +55,9 @@ export const getLikedPost = createAsyncThunk(
   "blogs/getLikedPost",
   async (payload, { rejectWithValue }) => {
     try {
+      const { page } = payload;
       // @request to get articles
-      const { data } = await api.get("/blog/pagLike");
+      const { data } = await api.get(`/blog/pagLike?page=${page}`);
       // @return data
       return data;
     } catch (error) {
