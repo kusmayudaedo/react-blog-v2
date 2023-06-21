@@ -79,10 +79,10 @@
   color: var(--title-color-dark);
 }
 
-.top-seacrh-icon {
-  font-size: var(--h2-font-size);
+.top-right-username {
+  font-size: var(--normal-font-size);
   cursor: pointer;
-  margin-right: 1rem;
+  margin-right: 10px;
 }
 
 .login-register-button {

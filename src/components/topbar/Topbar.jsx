@@ -1,6 +1,6 @@
 import "./topbar.css";
 import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import {
   getCategory,
   setCurrentAllBlogPage,
@@ -47,10 +47,12 @@ function Topbar() {
     loading,
     currentBlogPage,
     imgProfile,
+    username,
   } = useSelector((state) => {
     return {
       loading: state.blogs.isLoadingCategory,
       user: state.auth.id,
+      username: state.auth.username,
       isKeepLogin: state.auth.isKeepLogin,
       imgProfile: state.auth.imgProfile,
       allCategory: state.blogs.allCategory,
@@ -125,7 +127,7 @@ function Topbar() {
         <div className='top-right'>
           {user && isKeepLogin ? (
             <>
-              <i class='bx bx-search-alt-2 top-seacrh-icon'></i>
+              <span className="top-right-username">{username}</span>
               <img
                 onClick={openModal}
                 className='top-img'

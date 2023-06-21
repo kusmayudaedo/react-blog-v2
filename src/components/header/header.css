@@ -31,7 +31,8 @@
   margin-bottom: 10px;
 }
 
-.header-content a {
+.header-content span {
   color: teal;
   font-weight: bold;
+  cursor: pointer;
 }

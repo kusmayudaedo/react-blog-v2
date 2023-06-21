@@ -2,6 +2,9 @@ import "./header.css";
 import HeaderImg from "../../asset/header.png";
 
 const Header = () => {
+  const scrollDown = () => {
+    window.scrollTo({ top: 410, behavior: "smooth" });
+  };
   return (
     <div className='header'>
       <div className='header-container'>
@@ -14,11 +17,7 @@ const Header = () => {
             ranging from business and economics to technology, sports, culinary
             delights, international news, and even captivating science fiction.
           </p>
-          <div class='btn-box'>
-            <a href='' class='btn'>
-              Let's explore!
-            </a>
-          </div>
+          <span onClick={scrollDown}>Let's explore!</span>
         </div>
       </div>
     </div>
