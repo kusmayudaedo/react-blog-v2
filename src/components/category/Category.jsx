@@ -12,7 +12,7 @@ function Category({
   };
   return (
     <li
-      className="top-list-item side-bar-list-item"
+      className='top-list-item side-bar-list-item'
       onClick={hanleCategoryClick}
     >
       {categoryName}
@@ -24,9 +24,9 @@ function RenderCategory({ allCategory = [], currentBlogPage }) {
   return allCategory.map((category, index) => {
     return (
       <Category
-        key={category.id}
-        categoryId={category.id}
-        categoryName={category.name}
+        key={category?.id}
+        categoryId={category?.id}
+        categoryName={category?.name}
         currentBlogPage={currentBlogPage}
       />
     );
