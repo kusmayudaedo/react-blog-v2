@@ -271,10 +271,10 @@ function RenderPost({ articles = [], currentPage }) {
         thumbnail={article?.imageURL}
         categoryName={article?.Category?.name}
         categoryId={article?.Category?.id}
-        keywords={article?.Blog_Keywords[0].Keyword.name}
-        userProfilePicture={article?.User.imgProfile}
+        keywords={article?.Blog_Keywords[0]?.Keyword?.name}
+        userProfilePicture={article?.User?.imgProfile}
         userId={article?.UserId}
-        username={article?.User.username}
+        username={article?.User?.username}
         dateCreated={article?.createdAt}
         currentPage={currentPage}
       />
