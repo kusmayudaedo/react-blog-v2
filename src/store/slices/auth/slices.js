@@ -16,8 +16,8 @@ export const login = createAsyncThunk(
 
       return data?.isAccountExist;
     } catch (error) {
-      Toast.error(error?.response.data);
-      return rejectWithValue(error?.response?.data);
+      Toast.error(error.response.data.err);
+      return rejectWithValue(error.response.data.err);
     }
   }
 );
@@ -61,7 +61,7 @@ export const verifyAccount = createAsyncThunk(
       await api.patch("/auth/verify");
       return;
     } catch (error) {
-      return rejectWithValue(error.response ? error.response.data : error);
+      return rejectWithValue(error.response ? error.response.data.err : error);
     }
   }
 );
